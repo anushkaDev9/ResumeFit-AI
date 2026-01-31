@@ -2,10 +2,8 @@ from fastapi import FastAPI, UploadFile, File, Form
 from pypdf import PdfReader
 from google import genai
 import os
-from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
-load_dotenv()
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 app.add_middleware(
     CORSMiddleware,
@@ -32,6 +30,9 @@ def get_ai_response(prompt):
     )
     
     return response.text
+@app.get("/")
+def root():
+    return {"status": "Backend running"}
 @app.post("/submitForm")
 def submit_form(
     resumeFile: UploadFile = File(...),
@@ -55,10 +56,19 @@ Job Description:
 Return ONLY valid JSON.
 No markdown. No backticks. No extra text.
 
-STRICT RULES:
-- All details MUST be arrays of short lines (strings).
-- Each line max 20 words.
-- Be specific and ATS-focused.
+TASKS:
+1. Evaluate how well the resume matches the job description from an ATS perspective.
+2. Identify strengths already aligned with the role.
+3. Identify missing or weak areas compared to the job description.
+4. Suggest PROFILE-BUILDING improvements through:
+   - practical project ideas
+   - hands-on experience suggestions
+   - portfolio or GitHub improvements
+   (NOT resume wording fixes)
+5. Provide GENERAL resume tailoring advice that applies broadly across roles.
+   - Do NOT include technical skills
+   - Do NOT summarize the resume
+   - Focus on structure, clarity, and alignment strategy
 
 JSON format (keys must match exactly):
 {{
