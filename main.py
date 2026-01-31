@@ -2,10 +2,8 @@ from fastapi import FastAPI, UploadFile, File, Form
 from pypdf import PdfReader
 from google import genai
 import os
-from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
-load_dotenv()
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 app.add_middleware(
     CORSMiddleware,
