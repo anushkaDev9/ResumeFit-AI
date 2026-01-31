@@ -61,9 +61,9 @@ TASKS:
 2. Identify strengths already aligned with the role.
 3. Identify missing or weak areas compared to the job description.
 4. Suggest PROFILE-BUILDING improvements through:
-   - practical project ideas
+   - 2 practical project ideas that would help them increase the chances 
    - hands-on experience suggestions
-   - portfolio or GitHub improvements
+   
    (NOT resume wording fixes)
 5. Provide GENERAL resume tailoring advice that applies broadly across roles.
    - Do NOT include technical skills
