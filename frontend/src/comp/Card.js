@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaArrowRight } from "react-icons/fa";
 import * as motion from "motion/react-client"
 import { Link } from 'react-router-dom';
 const Card = ({title,subTitle,des,link}) => {

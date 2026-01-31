@@ -1,9 +1,8 @@
 import React,{useState} from 'react'
 import InputResume from '../comp/InputResume'
 import ResumeAi from '../comp/ResumeAi'
-import { s } from 'motion/react-client';
 import Loader from '../comp/Loader';
-const JobChecker = ({}) => {
+const JobChecker = () => {
     const [storeResult,setstoreResult]=useState("");
     const [show,setshow]=useState(false);
     const[loading,setLoading]=useState(false);
