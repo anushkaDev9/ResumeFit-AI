@@ -32,6 +32,9 @@ def get_ai_response(prompt):
     )
     
     return response.text
+@app.get("/")
+def root():
+    return {"status": "Backend running"}
 @app.post("/submitForm")
 def submit_form(
     resumeFile: UploadFile = File(...),
