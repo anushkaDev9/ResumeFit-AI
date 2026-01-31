@@ -47,11 +47,14 @@ You are an expert ATS resume evaluator and career coach.
 Resume:
 {resume_text}
 
-Job Title:
-{jobTitle}
+Job Title: {jobTitle}
+
 
 Job Description:
 {job_description}
+
+Return ONLY valid JSON.
+No markdown. No backticks. No extra text.
 
 TASKS:
 1. Evaluate how well the resume matches the job description from an ATS perspective.
@@ -67,29 +70,15 @@ TASKS:
    - Do NOT summarize the resume
    - Focus on structure, clarity, and alignment strategy
 
-STRICT OUTPUT RULES:
-- Return ONLY valid JSON.
-- No markdown, no backticks, no explanations.
-- Each field must be an array of short strings.
-- Each string must be under 20 words.
-- Be specific, actionable, and ATS-focused.
-- Do NOT invent experience or skills.
-
 JSON format (keys must match exactly):
-{
+{{
   "matched_score": 0,
   "matched_details": [],
   "missing_score": 0,
   "missing_details": [],
   "improvement_suggestions": [],
   "tailoring_tips": []
-}
-
-FIELD-SPECIFIC RULES:
-- matched_details: existing skills or experiences that match the job description
-- missing_details: important requirements not clearly shown in the resume
-- improvement_suggestions: project ideas, learning paths, or experience-building actions to strengthen the profile
-- tailoring_tips: general resume optimization advice (format, emphasis, clarity, ATS strategy only)
+}}
 """
 
     ai_response = get_ai_response(prompt)
