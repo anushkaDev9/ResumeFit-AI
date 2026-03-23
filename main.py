@@ -25,7 +25,7 @@ def extract_text_from_pdf(file):
 def get_ai_response(prompt):
   
     response = client.models.generate_content(
-        model="gemini-3-pro-preview",
+        model="gemini-3.1-pro-preview",
         contents=prompt,
     )
     
